@@ -10,7 +10,7 @@ Welcome to r-workshop-1's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   notebook
 
 Indices and tables
 ==================
