@@ -14,9 +14,7 @@ Brown CBC's Introductory R Workshop Materials
 
 	
 
-Indices and tables
-==================
-
-* :ref:`search`
+Contact
+=======
 
 For assistance, contact cbc-help@brown.edu
