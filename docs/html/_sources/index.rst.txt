@@ -1,0 +1,20 @@
+.. r-workshop-1 documentation master file, created by
+   sphinx-quickstart on Mon Jan 29 20:04:08 2018.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Brown CBC's Introductory R Workshop Materials
+=============================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   notebook
+
+	
+
+Contact
+=======
+
+For assistance, contact cbc-help@brown.edu - this is our general help line, so please specify that your issue is with this site's contents

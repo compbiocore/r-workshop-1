@@ -1,0 +1,8 @@
+Workshop 1 Jupyter Notebook
+===========================
+
+
+.. raw:: html
+
+	<p>Jupyter notebook 1/26/18</p>
+    <iframe src="_static/r_notebook.html" height="750px" width="800px"></iframe>
