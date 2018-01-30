@@ -12,9 +12,11 @@ Brown CBC's Introductory R Workshop Materials
 
    notebook
 
+	
+
 Indices and tables
 ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
+
+For assistance, contact cbc-help@brown.edu
