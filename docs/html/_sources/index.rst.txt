@@ -22,7 +22,9 @@ This site hosts the Jupyter notebook for the CBC Introductory R Workshop.  The n
 
 .. raw:: html
 
-      <a href="https://raw.githubusercontent.com/compbiocore/r-workshop-1/master/r_workshop_notebook_with_output.ipynb" download>
+	<a href="https://raw.githubusercontent.com/compbiocore/r-workshop-1/master/r_workshop_notebook_with_output.ipynb">
+
+Download Notebook
 
 Contact
 =======
