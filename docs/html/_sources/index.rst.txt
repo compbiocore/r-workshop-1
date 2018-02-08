@@ -10,9 +10,18 @@ Brown CBC's Introductory R Workshop Materials
    :maxdepth: 2
    :caption: Contents:
 
+   CBC Workshop index <https://compbiocore.github.io/cbc-workshops/>
+
    notebook
 
+   :download:`Download Notebook <https://raw.githubusercontent.com/compbiocore/r-workshop-1/master/r_workshop_notebook_with_output.ipynb>`.
+
 	
+Purpose
+=======
+
+This site hosts the Jupyter notebook for the CBC Introductory R Workshop.  The notebook will be served on the web as a static HTML page, meaning that while it looks like a live notebook, it cannot be edited.  To obtain an editable notebook file, please click the 'download notebook' link.
+
 
 Contact
 =======
