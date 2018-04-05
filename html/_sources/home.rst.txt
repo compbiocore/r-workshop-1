@@ -1,6 +1,0 @@
-Return to the page index
-========================
-
-
-.. raw:: html
-   :file: home.html
