@@ -42,7 +42,7 @@ This directory is temporary and will be decommissioned upon completion of the wo
 To access a read-only version of the workshop notebook (complete with full output), please click the above link; you will be redirected to Jupyter's NBViewer utility.  Simply click the name of the notebook and it will be rendered as HTML.
 
 ### Jupyter notebook 1/26/18
-<iframe src="../assets/r_workshop_notebook_with_output.html" height="750px" width="800px"></iframe>.  
+<iframe src="https://raw.githubusercontent.com/compbiocore/r-workshop-1/gh-pages/assets/r_workshop_notebook_with_output.html" height="750px" width="800px"></iframe>.  
 
 ### Authors
 
