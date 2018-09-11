@@ -1,0 +1,7 @@
+repo:             r-workshop-1
+site_name:        R Workshop 1
+site_author:      Andrew Leith
+site_description: Fundamentals of R Workshop
+site_url:         https://compbiocore.github.io/
+type:             workshop    # required. choose one of [software, tutorial, workshop, documentation]
+
