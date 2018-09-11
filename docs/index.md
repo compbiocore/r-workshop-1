@@ -1,9 +1,9 @@
 # Introduction to R Workshop
 
 
-[![Docs](https://img.shields.io/badge/docs-stable-blue.svg?style=flat-square)](https://compbiocore.github.io/cbc-workshop-tester)
-[![nbviewer](https://img.shields.io/badge/jupyter_notebooks-nbviewer-purple.svg?style=flat-square)](http://nbviewer.jupyter.org/github/compbiocore/cbc-workshop-tester/tree/master/docs/src/notebooks)
-[![License](https://img.shields.io/aur/license/yaourt.svg)](https://raw.githubusercontent.com/compbiocore/cbc-workshop-tester/master/LICENSE)
+[![Docs](https://img.shields.io/badge/docs-stable-blue.svg?style=flat-square)](https://compbiocore.github.io/r-workshop-1)
+[![nbviewer](https://img.shields.io/badge/jupyter_notebooks-nbviewer-purple.svg?style=flat-square)](http://nbviewer.jupyter.org/github/compbiocore/r-workshop-1/tree/master/docs/src/notebooks)
+[![License](https://img.shields.io/aur/license/yaourt.svg)](https://raw.githubusercontent.com/compbiocore/r-workshop-1/master/LICENSE)
 
 ### Time and Location
 
@@ -37,7 +37,7 @@ To login to your instance, please visit the following link.  There, you'll see a
 
 This directory is temporary and will be decommissioned upon completion of the workshop.
 
-### **[Notebook](http://nbviewer.jupyter.org/github/compbiocore/cbc-workshop-tester/tree/master/docs/src/notebooks)**
+### **[Notebook](http://nbviewer.jupyter.org/github/compbiocore/r-workshop-1/tree/master/docs/src/notebooks)**
 
 To access a read-only version of the workshop notebook (complete with full output), please click the above link; you will be redirected to Jupyter's NBViewer utility.  Simply click the name of the notebook and it will be rendered as HTML.
 
