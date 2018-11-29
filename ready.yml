@@ -1,7 +1,9 @@
 repo:             r-workshop-1
-site_name:        R Workshop 1
-site_author:      Andrew Leith
-site_description: Fundamentals of R Workshop
-site_url:         https://compbiocore.github.io/
+site_name:        Fundamentals of R Workshop
+authors:      
+  - name: Andrew Leith
+    github_user: andrew-leith
+site_description: Introduction to the R programming language.
+docs_url:         https://compbiocore.github.io/r-workshop-1
 type:             workshop    # required. choose one of [software, tutorial, workshop, documentation]
 
