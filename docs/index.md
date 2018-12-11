@@ -60,7 +60,7 @@ For assistance, contact cbc-help@brown.edu - this is our general help line, so p
 
 ### Original Time and Location
 
-> Date: 1/1/2018
+> Date: 1/26/2018
 
 > Location: SWIG Boardroom
 
