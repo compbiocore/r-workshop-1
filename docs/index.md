@@ -5,15 +5,13 @@
 [![nbviewer](https://img.shields.io/badge/jupyter_notebooks-nbviewer-purple.svg?style=flat-square)](http://nbviewer.jupyter.org/github/compbiocore/r-workshop-1/tree/master/docs/src/notebooks)
 [![License](https://img.shields.io/aur/license/yaourt.svg)](https://raw.githubusercontent.com/compbiocore/r-workshop-1/master/LICENSE)
 
-### Time and Location
+## Goal
 
-> Date: 1/1/2018
-
-> Location: SWIG Boardroom
+The purpose of this workshop, 'Fundamentals of R', is to present an overview of the R programming language and its fundamental elements to an audience with minimal coding experience.  Users will create objects, modify them, and learn how to extract descriptive information from them.  The workshop is intended to provide the foundation that will be needed to take and understand future workshops hosted by the Computational Biology Core, including the DESeq and single-cell data analysis workshops, which are all conducted in R.  Upon completing this notebook, users will be in a position to understand the more advanced concepts presented in those sessions.
 
 ## Workshop Topic Overview
 
-This workshop, 'the Fundamentals of R', is designed to introduce many important aspects of the R programming language; it is an introductory lecture that assumes no prior knowledge of or experience with R.  The topics presented herein include the following:
+The topics presented here, in the 'Fundamentals of R' workshop, include the following:
 
 * Basic data types (variables, vectors)
     * Numeric, character, factor
@@ -59,6 +57,12 @@ Links to other workshops (Documentation and GitHub)
 ### Contact
 
 For assistance, contact cbc-help@brown.edu - this is our general help line, so please specify that your issue is with this site's contents
+
+### Original Time and Location
+
+> Date: 1/1/2018
+
+> Location: SWIG Boardroom
 
 ###  References  
 
