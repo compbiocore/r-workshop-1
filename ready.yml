@@ -3,7 +3,7 @@ site_name:        Fundamentals of R Workshop
 authors:      
   - name: Andrew Leith
     github_user: andrew-leith
-site_description: Introduction to the R programming language.
+site_description: This workshop serves as an introduction to the R programming language for those with little to no experience in its use.
 docs_url:         https://compbiocore.github.io/r-workshop-1
 type:             workshop    # required. choose one of [software, tutorial, workshop, documentation]
 
