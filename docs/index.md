@@ -3,7 +3,7 @@
 
 [![Docs](https://img.shields.io/badge/docs-stable-blue.svg?style=flat-square)](https://compbiocore.github.io/r-workshop-1)
 [![nbviewer](https://img.shields.io/badge/jupyter_notebooks-nbviewer-purple.svg?style=flat-square)](http://nbviewer.jupyter.org/github/compbiocore/r-workshop-1/tree/master/docs/src/notebooks)
-[![License](https://img.shields.io/aur/license/yaourt.svg)](https://raw.githubusercontent.com/compbiocore/r-workshop-1/master/LICENSE)
+[![License](https://img.shields.io/github/license/compbiocore/r-workshop-1.svg)](https://raw.githubusercontent.com/compbiocore/r-workshop-1/master/LICENSE)
 
 ## Goal
 
