@@ -1780,7 +1780,7 @@ To call that function and print the output:
 print(roll(number_of_dice = 10))
 ```
 
-     [1] 5 6 5 1 6 6 6 3 4 4
+     [1] 4 4 4 3 3 4 6 2 3 2
 
 
 Lets look at the `formals()`
@@ -1849,11 +1849,11 @@ So, the function itself is called `roll`, it takes the argument or formals `numb
 
 
 <ol class=list-inline>
-	<li>1</li>
-	<li>1</li>
 	<li>2</li>
+	<li>6</li>
 	<li>1</li>
-	<li>4</li>
+	<li>3</li>
+	<li>5</li>
 </ol>
 
 
@@ -1882,7 +1882,7 @@ roll <- function(
 print(roll(number_of_dice = 5, number_of_sides = 20))
 ```
 
-    [1] 14  5  9  4  3
+    [1] 15  6  1 12  9
 
 
 - Lets say we want to roll different numbers of dice (`number_of_dice`) and we want to change the size of the dice we roll (`number_of_sides`) as well as tweak the number of times we roll the dice (`number_of_rolls`).
@@ -1915,11 +1915,11 @@ print(rolled_dice)
 ```
 
          [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
-    [1,]   15   13    1   10   18    1   13    6   13    13
-    [2,]    4   20   10    5   14    1    1   19    3    13
-    [3,]   16    3    8    2   16    4   18    1   11    14
-    [4,]    5    9   18   19    4    9    6   15    4    18
-    [5,]    2   14   15    5   18   20   20    4   12    20
+    [1,]   12   15   13    2    4    4    4   13    9     9
+    [2,]   15   16   16   10   17   18   13   18   19    11
+    [3,]   10    7    9   18   15    3    2    5    2    17
+    [4,]   10    9    2   14    7   13    5    4    5    16
+    [5,]   10    7   16   20    7   17   10   16   10    12
 
 
 You can use `colSums()` or `rowSums()` to calculate the sum of the columns and rows:
@@ -1929,7 +1929,7 @@ You can use `colSums()` or `rowSums()` to calculate the sum of the columns and r
 print(colSums(rolled_dice))
 ```
 
-     [1] 42 59 52 41 70 35 58 45 43 78
+     [1] 57 54 56 64 50 55 34 56 45 65
 
 
 
@@ -1937,7 +1937,7 @@ print(colSums(rolled_dice))
 print(rowSums(rolled_dice))
 ```
 
-    [1] 103  90  93 107 130
+    [1]  85 153  88  85 125
 
 
 We can make `rolled_dice` into an **anonymous function**:
@@ -1962,16 +1962,16 @@ print(
 ```
 
           [,1] [,2] [,3] [,4] [,5]
-     [1,]    6    1   13    4   14
-     [2,]    6    5    1   12    5
-     [3,]    7    3    3   14   13
-     [4,]    1   20   18    1    5
-     [5,]   16   16    3    9   20
-     [6,]   16   13   10    1    1
-     [7,]    6    7   11    4   16
-     [8,]   19    5   10   18   20
-     [9,]    6    3   13    1   15
-    [10,]   12   13    2   14   18
+     [1,]   13   11   18   15    9
+     [2,]    3   14    9   13    3
+     [3,]   14    2    7    5   11
+     [4,]   15   19   13    2   20
+     [5,]   16    2   14   15    3
+     [6,]   16   19    5   17   16
+     [7,]   17   14   13   10   17
+     [8,]   10    9   13   10   11
+     [9,]    5   16    3   19    6
+    [10,]    2   10   14   10    8
 
 
 Lets make another anonymous function that makes a boxplot of our dice rolls:
@@ -2079,8 +2079,10 @@ We can add some colors to the figure by adding `col = c(1:number_of_dice)`, this
 
 
 # Importing and Exporting files
-- Use the `write.table` or `write.csv` functions to write outputs in R.
+- There are a few different ways to read and write files in R.
+- We will use `read.table()` and `write.table()`.
 - Lets use some of the pre-loaded data that comes with R. 
+- First, let's import the `iris` data as a data frame and use `head()` to look at the first few lines
 
 
 ```R
@@ -2088,75 +2090,140 @@ iris <- data.frame(iris)
 head(iris)
 ```
 
-You can write the output to a file using `write.table` or `write.csv`:
+
+<table>
+<caption>A data.frame: 6 × 5</caption>
+<thead>
+	<tr><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th><th scope=col>Petal.Width</th><th scope=col>Species</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr>
+</tbody>
+</table>
+
+
+
+You can write the output to a file using `write.table`:
 
 
 ```R
 write.table(iris, file = '~/iris_table.txt')
-write.csv(iris, file = '~/iris_csv.csv')
 ```
 
-Let's try using `read.table` and `read.csv` to test out importing data:
+Use `read.table()` to pull data into R:
 
 
 ```R
-row.names(iris_csv2)
-```
-
-
-```R
-iris_table2 <- read.table('~/iris_table.txt')
+iris_table_2 <- read.table('~/iris_table.txt')
 ```
 
 
 ```R
-iris_csv2 <- read.csv('~/iris_csv.csv')
+head(iris_table_2)
 ```
 
 
-```R
-head(iris_table2)
-```
+<table>
+<caption>A data.frame: 6 × 5</caption>
+<thead>
+	<tr><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th><th scope=col>Petal.Width</th><th scope=col>Species</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr>
+</tbody>
+</table>
 
 
-```R
-head(iris_csv2)
-```
 
 Notice that the `Species` column is a factor (`<fct>`). If we'd like text strings to be characters instead of factors when we import we can use `stringsAsFactors = FALSE`:
 
 
 ```R
-iris_table <- read.table('~/iris_table.txt', stringsAsFactors = FALSE)
-iris_csv <- read.csv('~/iris_csv.csv', stringsAsFactors = FALSE)
+iris_table_3 <- read.table('~/iris_table.txt', stringsAsFactors = FALSE)
 ```
 
 
 ```R
-head(iris_table)
-head(iris_csv)
+head(iris_table_3)
 ```
 
+
+<table>
+<caption>A data.frame: 6 × 5</caption>
+<thead>
+	<tr><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th><th scope=col>Petal.Width</th><th scope=col>Species</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr>
+</tbody>
+</table>
+
+
+
+Notice that the `Species` column is a character (`<chr>`)
 To convert back into a factor:
 
 
 ```R
-iris_table$Species <- as.factor(iris_table$Species)
-iris_csv$Species <- as.factor(iris_csv$Species)
+iris_table_3$Species <- as.factor(iris_table_3$Species)
 ```
 
 
 ```R
-head(iris_table)
-head(iris_csv)
+head(iris_table_3)
 ```
 
-Use `list.files()` get a list of all files in a directory:
+
+<table>
+<caption>A data.frame: 6 × 5</caption>
+<thead>
+	<tr><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th><th scope=col>Petal.Width</th><th scope=col>Species</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr>
+</tbody>
+</table>
+
+
+
+Another convenient function is `list.files()`, which you can use with a wildcard (`*`) to return a list of all files in a directory (specified in `path =`) that start with `iris_`:
 
 
 ```R
 list.files(path = '~', pattern = 'iris_*')
 ```
+
+
+<ol class=list-inline>
+	<li>'iris_csv.csv'</li>
+	<li>'iris_table.txt'</li>
+</ol>
+
+
 
 # R packages
 - Although R comes with many built in functions, you will probably want to install and use various R packages.
@@ -2168,6 +2235,11 @@ list.files(path = '~', pattern = 'iris_*')
 ```R
 install.packages('ggplot2')
 ```
+
+    
+    The downloaded binary packages are in
+    	/var/folders/72/vj4x94hd7375wt06bb5fr36hwbf4ln/T//RtmpgK2EAd/downloaded_packages
+
 
 Before you can actually use the package, you have to load it as follows:
 
@@ -2185,6 +2257,11 @@ There are two steps to downloading a package from Bioconductor -- first, install
 install.packages("BiocManager")
 ```
 
+    
+    The downloaded binary packages are in
+    	/var/folders/72/vj4x94hd7375wt06bb5fr36hwbf4ln/T//RtmpgK2EAd/downloaded_packages
+
+
 Then, load `BiocManager` and use `BiocManager::install()` to install a package.
 
 
@@ -2192,6 +2269,22 @@ Then, load `BiocManager` and use `BiocManager::install()` to install a package.
 library('BiocManager')
 BiocManager::install("org.Hs.eg.db")
 ```
+
+    Bioconductor version 3.8 (BiocManager 1.30.9), ?BiocManager::install for help
+    Bioconductor version 3.8 (BiocManager 1.30.9), R 3.5.2 (2018-12-20)
+    Installing package(s) 'org.Hs.eg.db'
+    installing the source package ‘org.Hs.eg.db’
+    
+    Old packages: 'arrangements', 'backports', 'callr', 'clipr', 'curl',
+      'data.table', 'devtools', 'digest', 'DT', 'ellipsis', 'fivethirtyeight',
+      'foreign', 'ggforce', 'ggplotify', 'ggpubr', 'ggraph', 'ggsignif', 'hms',
+      'htmlTable', 'htmltools', 'htmlwidgets', 'httpuv', 'httr', 'KernSmooth',
+      'knitr', 'lambda.r', 'later', 'markdown', 'matrixStats', 'mgcv', 'modelr',
+      'nlme', 'openxlsx', 'pkgbuild', 'pkgconfig', 'promises', 'purrr', 'R.oo',
+      'Rcpp', 'RcppArmadillo', 'rlang', 'rmarkdown', 'RSQLite', 'rvcheck',
+      'seqinr', 'shiny', 'survival', 'sys', 'testthat', 'tinytex', 'units',
+      'whisker', 'xfun', 'xml2', 'zip'
+
 
 Use the `sessionInfo()` function to see more information about your loaded R packages and namespace:
 
@@ -2214,14 +2307,22 @@ print(sessionInfo())
     attached base packages:
     [1] stats     graphics  grDevices utils     datasets  methods   base     
     
+    other attached packages:
+    [1] BiocManager_1.30.9 ggplot2_3.2.1     
+    
     loaded via a namespace (and not attached):
-     [1] Rcpp_1.0.1      digest_0.6.20   zeallot_0.1.0   crayon_1.3.4   
-     [5] IRdisplay_0.7.0 repr_1.0.1      backports_1.1.4 jsonlite_1.6   
-     [9] evaluate_0.14   pillar_1.4.2    rlang_0.4.0     uuid_0.1-2     
-    [13] vctrs_0.2.0     IRkernel_1.0.2  tools_3.5.2     compiler_3.5.2 
-    [17] pkgconfig_2.0.2 base64enc_0.1-3 htmltools_0.3.6 pbdZMQ_0.3-3   
-    [21] tibble_2.1.3   
+     [1] Rcpp_1.0.1       magrittr_1.5     tidyselect_0.2.5 munsell_0.5.0   
+     [5] uuid_0.1-2       colorspace_1.4-1 R6_2.4.0         rlang_0.4.0     
+     [9] dplyr_0.8.3      tools_3.5.2      grid_3.5.2       gtable_0.3.0    
+    [13] withr_2.1.2      htmltools_0.3.6  assertthat_0.2.1 lazyeval_0.2.2  
+    [17] digest_0.6.20    tibble_2.1.3     crayon_1.3.4     IRdisplay_0.7.0 
+    [21] purrr_0.3.2      repr_1.0.1       base64enc_0.1-3  vctrs_0.2.0     
+    [25] IRkernel_1.0.2   zeallot_0.1.0    glue_1.3.1       evaluate_0.14   
+    [29] pbdZMQ_0.3-3     compiler_3.5.2   pillar_1.4.2     scales_1.0.0    
+    [33] backports_1.1.4  jsonlite_1.6     pkgconfig_2.0.2 
 
+
+# If we have time, we can talk about some `apply()` functions:
 
 ## The `apply()` functions
 - R uses a family of `apply()` functions to repetitively manipulate objects while avoiding for loops. 
@@ -2258,11 +2359,11 @@ print(rolled_dice)
 ```
 
          [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
-    [1,]   17   16   18   19   20    1    9    6    9    20
-    [2,]    3    9   15    2    1   16   15   15   14     4
-    [3,]   10   10   20    4   19   16   14    7   20    12
-    [4,]    1   15   19   18   14   18   13   13   12     7
-    [5,]    5    9    8    1   16   12    2   10   20    11
+    [1,]   14   16   19    6   18    1   20   14    1    16
+    [2,]    7    1    6   14    2    5    5    8   10    14
+    [3,]   15    8    9   14   11    5   10   14    9    12
+    [4,]   13   15   13   14   14   20    5   10   12    11
+    [5,]   17   11    1   11    6    6    6    9    9     7
 
 
 
@@ -2286,11 +2387,11 @@ print(rolled_dice)
 ```
 
            die_1 die_2 die_3 die_4 die_5 die_6 die_7 die_8 die_9 die_10
-    roll_1    17    16    18    19    20     1     9     6     9     20
-    roll_2     3     9    15     2     1    16    15    15    14      4
-    roll_3    10    10    20     4    19    16    14     7    20     12
-    roll_4     1    15    19    18    14    18    13    13    12      7
-    roll_5     5     9     8     1    16    12     2    10    20     11
+    roll_1    14    16    19     6    18     1    20    14     1     16
+    roll_2     7     1     6    14     2     5     5     8    10     14
+    roll_3    15     8     9    14    11     5    10    14     9     12
+    roll_4    13    15    13    14    14    20     5    10    12     11
+    roll_5    17    11     1    11     6     6     6     9     9      7
 
 
 Let's try using `apply()` to increase every value by 1:
@@ -2307,11 +2408,11 @@ print(add_one)
 
 
            die_1 die_2 die_3 die_4 die_5 die_6 die_7 die_8 die_9 die_10
-    roll_1    18    17    19    20    21     2    10     7    10     21
-    roll_2     4    10    16     3     2    17    16    16    15      5
-    roll_3    11    11    21     5    20    17    15     8    21     13
-    roll_4     2    16    20    19    15    19    14    14    13      8
-    roll_5     6    10     9     2    17    13     3    11    21     12
+    roll_1    15    17    20     7    19     2    21    15     2     17
+    roll_2     8     2     7    15     3     6     6     9    11     15
+    roll_3    16     9    10    15    12     6    11    15    10     13
+    roll_4    14    16    14    15    15    21     6    11    13     12
+    roll_5    18    12     2    12     7     7     7    10    10      8
 
 
 - The `c(1,2)` argument to `apply()` means that the function should apply to all rows and columns.
@@ -2326,7 +2427,7 @@ print(row_sums)
 ```
 
     roll_1 roll_2 roll_3 roll_4 roll_5 
-       135     94    132    130     94 
+       125     72    107    127     83 
 
 
 
@@ -2335,14 +2436,18 @@ If we use `2` it will apply the function to each column:
 ```
 
 
+    Error in parse(text = x, srcfile = src): <text>:1:4: unexpected symbol
+    1: If we
+           ^
+    Traceback:
+
+
+
+
 ```R
 col_sums <- apply(rolled_dice, 2, function(element) sum(element))
 print(col_sums) 
 ```
-
-     die_1  die_2  die_3  die_4  die_5  die_6  die_7  die_8  die_9 die_10 
-        36     59     80     44     70     63     53     51     75     54 
-
 
 ### `lapply()`
 
@@ -2365,21 +2470,9 @@ class(rolled_dice_df)
 ```
 
 
-'data.frame'
-
-
-
 ```R
 print(rolled_dice_df)
 ```
-
-           die_1 die_2 die_3 die_4 die_5 die_6 die_7 die_8 die_9 die_10
-    roll_1    17    16    18    19    20     1     9     6     9     20
-    roll_2     3     9    15     2     1    16    15    15    14      4
-    roll_3    10    10    20     4    19    16    14     7    20     12
-    roll_4     1    15    19    18    14    18    13    13    12      7
-    roll_5     5     9     8     1    16    12     2    10    20     11
-
 
 
 ```R
@@ -2391,40 +2484,10 @@ col_sums_df <- lapply(rolled_dice_df, sum)
 str(col_sums_df)
 ```
 
-    List of 10
-     $ die_1 : int 36
-     $ die_2 : int 59
-     $ die_3 : int 80
-     $ die_4 : int 44
-     $ die_5 : int 70
-     $ die_6 : int 63
-     $ die_7 : int 53
-     $ die_8 : int 51
-     $ die_9 : int 75
-     $ die_10: int 54
-
-
 
 ```R
 rolled_dice
 ```
-
-
-<table>
-<caption>A matrix: 5 × 10 of type int</caption>
-<thead>
-	<tr><th></th><th scope=col>die_1</th><th scope=col>die_2</th><th scope=col>die_3</th><th scope=col>die_4</th><th scope=col>die_5</th><th scope=col>die_6</th><th scope=col>die_7</th><th scope=col>die_8</th><th scope=col>die_9</th><th scope=col>die_10</th></tr>
-</thead>
-<tbody>
-	<tr><th scope=row>roll_1</th><td>17</td><td>16</td><td>18</td><td>19</td><td>20</td><td> 1</td><td> 9</td><td> 6</td><td> 9</td><td>20</td></tr>
-	<tr><th scope=row>roll_2</th><td> 3</td><td> 9</td><td>15</td><td> 2</td><td> 1</td><td>16</td><td>15</td><td>15</td><td>14</td><td> 4</td></tr>
-	<tr><th scope=row>roll_3</th><td>10</td><td>10</td><td>20</td><td> 4</td><td>19</td><td>16</td><td>14</td><td> 7</td><td>20</td><td>12</td></tr>
-	<tr><th scope=row>roll_4</th><td> 1</td><td>15</td><td>19</td><td>18</td><td>14</td><td>18</td><td>13</td><td>13</td><td>12</td><td> 7</td></tr>
-	<tr><th scope=row>roll_5</th><td> 5</td><td> 9</td><td> 8</td><td> 1</td><td>16</td><td>12</td><td> 2</td><td>10</td><td>20</td><td>11</td></tr>
-</tbody>
-</table>
-
-
 
 However, if you use `lapply()` to calculate sums on the `rolled_dice` matrix, you get back a very long list (since `lapply()` wants to return a list).
 
@@ -2434,67 +2497,10 @@ class(rolled_dice)
 ```
 
 
-'matrix'
-
-
-
 ```R
 col_sums <- lapply(rolled_dice, sum)
 str(col_sums)
 ```
-
-    List of 50
-     $ : int 17
-     $ : int 3
-     $ : int 10
-     $ : int 1
-     $ : int 5
-     $ : int 16
-     $ : int 9
-     $ : int 10
-     $ : int 15
-     $ : int 9
-     $ : int 18
-     $ : int 15
-     $ : int 20
-     $ : int 19
-     $ : int 8
-     $ : int 19
-     $ : int 2
-     $ : int 4
-     $ : int 18
-     $ : int 1
-     $ : int 20
-     $ : int 1
-     $ : int 19
-     $ : int 14
-     $ : int 16
-     $ : int 1
-     $ : int 16
-     $ : int 16
-     $ : int 18
-     $ : int 12
-     $ : int 9
-     $ : int 15
-     $ : int 14
-     $ : int 13
-     $ : int 2
-     $ : int 6
-     $ : int 15
-     $ : int 7
-     $ : int 13
-     $ : int 10
-     $ : int 9
-     $ : int 14
-     $ : int 20
-     $ : int 12
-     $ : int 20
-     $ : int 20
-     $ : int 4
-     $ : int 12
-     $ : int 7
-     $ : int 11
-
 
 ### `sapply`
 
@@ -2523,18 +2529,6 @@ is.vector(col_sums_df)
 ```
 
 
-'integer'
-
-
-
-TRUE
-
-
-
 ```R
 print(col_sums_df)
 ```
-
-     die_1  die_2  die_3  die_4  die_5  die_6  die_7  die_8  die_9 die_10 
-        36     59     80     44     70     63     53     51     75     54 
-

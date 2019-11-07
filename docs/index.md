@@ -11,42 +11,36 @@ The purpose of this workshop, 'Fundamentals of R', is to present an overview of 
 
 ## Workshop Topic Overview
 
-The topics presented here, in the 'Fundamentals of R' workshop, include the following:
+In this workshop you’ll learn:
+- Basics of R (objects, variables, data classes, vectors)
 
-* Basic data types (variables, vectors)
-    * Numeric, character, factor
-    * Vectorized operations and functions
-* Dataframes and dataframe operations
-    * Inspecting data
-    * Exploring data, generating summary statistics
-    * Combining and sorting data sets
-* Extensions to base R
-    * Installing new packages from CRAN and Bioconductor
-    * Importing packages
-* Basics of user-created functions
-    * Arguments, variable scope, and return values
+- How to use and write R functions
 
+- How to import and export your data
+
+- How to install and load R and Bioconductor packages
 
 ### Getting started
+- Go to ccv.jupyter.brown.edu and login with your Brown GMail login.
 
-To login to your instance, please visit the following link.  There, you'll see a user directory; simply copy the password at the top, find your name, and click the link to login to your instance.  Enter the password once prompted, and you'll then be presented with a notebook file.
+- Once you're connected, you'll see the JupyterHub homepage:
 
-[CBC Workshop Directory](https://compbiocore.github.io/cbc-workshop-directory/html/index.html)
+- Click the 'git clone' button and paste in the URL of the git repository, which is
+`https://github.com/compbiocore/r-workshop-1.git` then click the `CLONE` button.
 
-This directory is temporary and will be decommissioned upon completion of the workshop.
+- Open the folder called `r-workshop-1`.
 
-### **[Notebook](http://nbviewer.jupyter.org/github/compbiocore/r-workshop-1/tree/master/docs/src/notebooks)**
-
-To access a read-only version of the workshop notebook (complete with full output), please click the above link; you will be redirected to Jupyter's NBViewer utility.  Simply click the name of the notebook and it will be rendered as HTML.
+- Open up the file called `RWorkshop_JW.ipynb` to launch the notebook.
 
 ### Authors
 
-Andrew Leith
+Joselynn Wallace
 
 ### Other workshops and tutorials
 
 Links to other workshops (Documentation and GitHub)  
 
+- [Visualization in R with tidyverse](https://compbiocore.github.io/tidyverse-workshop/)
 - [Introduction to Bioconductor](https://compbiocore.github.io/bioconductor-workshop-1/)  
 - [Bioconductor for RNA-seq](https://compbiocore.github.io/bioconductor-workshop-2/html/index.html)  
 - [Introduction to Linux Tutorial](https://compbiocore.github.io/cbc-linux-tutorial/html/index.html)
@@ -57,12 +51,11 @@ For assistance, contact cbc-help@brown.edu - this is our general help line, so p
 
 ### Original Time and Location
 
-> Date: 1/26/2018
+> Date: 11/8/2019
 
-> Location: SWIG Boardroom
+> Time: 9:00AM - 12:00PM
 
-###  References  
+> Location: CIT SWIG Boardroom (Room 241)
+            115 Waterman Street, Providence, RI 02912
 
-> 1 .  Lorem ipsum dolor sit amet
-
-> 2 .  Sed ut perspiciatis unde omnis iste natus
+> Bring: Laptop with wireless capabilities and plug.
