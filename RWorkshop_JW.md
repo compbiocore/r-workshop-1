@@ -1,4 +1,3 @@
-
 # In this workshop you will learn:
 - Basics of R (objects, variables, data classes, vectors)
 - How to write R functions
@@ -18,10 +17,6 @@
 ```R
 2 - 1
 ```
-
-
-1
-
 
 - It is generally more useful to assign your values to **variables**, which are R objects.
 - You can assign values to R variables using the assignment operator **'<-'**, which assigns the value on the right to the variable on the left.
@@ -46,10 +41,6 @@ R won't print anything when you assign a value to a variable. We can look at the
 a
 ```
 
-
-1
-
-
 - R also comes with a `print()` function that we can use to look at our variables.
 - We will talk more about functions later in this workshop, but a **function** is a series of statements that work together to perform a specific task.
 - All functions need pieces of information (or **arguments**) to perform their particular function, these arguments can be required or optional. 
@@ -65,9 +56,6 @@ a
 ```R
 print(a)
 ```
-
-    [1] 1
-
 
 We can name our variables any combination of letters, numbers, or underscores (`_`) with a few exceptions:
 - R has a few reserved words that can't be used as variable names in R:
@@ -94,32 +82,20 @@ Now that we have assigned some values to variables, we can start using them:
 print(bar)
 ```
 
-    [1] 11
-
-
 
 ```R
 print(bar * 2)
 ```
-
-    [1] 22
-
 
 
 ```R
 print(a)
 ```
 
-    [1] 1
-
-
 
 ```R
 print(a + bar)
 ```
-
-    [1] 12
-
 
 # Data classes
 
@@ -146,30 +122,6 @@ class(dog_)
 class(egg)
 class(foo)
 ```
-
-
-'numeric'
-
-
-
-'numeric'
-
-
-
-'character'
-
-
-
-'logical'
-
-
-
-'integer'
-
-
-
-'complex'
-
 
 - The `L` we included when we assigned `egg` tells R that this object is an integer.
 - The `i` we included when we assigned `foo` indicates an imaginary number, making `foo` complex data class object.
@@ -210,13 +162,6 @@ print(logical_vector)
 print(character_vector_2)
 ```
 
-    [1] 1 2 3 4 5
-    [1] "one"   "two"   "three" "four"  "five" 
-    [1]  6  7  8  9 10 11 12
-    [1]  TRUE  TRUE FALSE
-    [1] "a"   "pug" "is"  "not" "a"   "big" "dog"
-
-
 Vectors also have class:
 
 
@@ -227,13 +172,6 @@ print(class(integer_vector))
 print(class(logical_vector)) 
 print(class(character_vector_2))
 ```
-
-    [1] "numeric"
-    [1] "character"
-    [1] "integer"
-    [1] "logical"
-    [1] "character"
-
 
 You can combine vectors using `c()`
 
@@ -247,18 +185,12 @@ combined_vector <- c(numeric_vector, integer_vector)
 print(combined_vector)
 ```
 
-     [1]  1  2  3  4  5  6  7  8  9 10 11 12
-
-
 You can use the `length()` function to see how long your vectors are:
 
 
 ```R
 print(length(combined_vector))
 ```
-
-    [1] 12
-
 
 You can also access elements of the vector based on the index (or its position in the vector):
 
@@ -267,18 +199,12 @@ You can also access elements of the vector based on the index (or its position i
 print(combined_vector[2])
 ```
 
-    [1] 2
-
-
 You can combine these operations, but note that R code evaluates from the inside out:
 
 
 ```R
 print(combined_vector[length(combined_vector)])
 ```
-
-    [1] 12
-
 
 Here, R is reading `length(combined_vector)` first. The value returned by the `length()` function is then used to access the last entry in the `combined_vector` vector.
 
@@ -290,18 +216,10 @@ names(numeric_vector) <- c('one', 'two', 'three', 'four', 'five')
 print(numeric_vector)
 ```
 
-      one   two three  four  five 
-        1     2     3     4     5 
-
-
 
 ```R
 print(numeric_vector['three'])
 ```
-
-    three 
-        3 
-
 
 We can use `-c` to remove vector elements:
 
@@ -309,9 +227,6 @@ We can use `-c` to remove vector elements:
 ```R
 print(combined_vector[-c(4)])
 ```
-
-     [1]  1  2  3  5  6  7  8  9 10 11 12
-
 
 If a vector is numerical, we can also perform some math operations on the entire vector. Here, we can calculate the sum of a vector:
 
@@ -321,18 +236,10 @@ print(combined_vector)
 print(sum(combined_vector))
 ```
 
-     [1]  1  2  3  4  5  6  7  8  9 10 11 12
-    [1] 78
-
-
 
 ```R
 print(combined_vector/sum(combined_vector))
 ```
-
-     [1] 0.01282051 0.02564103 0.03846154 0.05128205 0.06410256 0.07692308
-     [7] 0.08974359 0.10256410 0.11538462 0.12820513 0.14102564 0.15384615
-
 
 Use the `round()` function to specify you only want 3 digits reported and assign it to a variable called `rounded`
 
@@ -342,19 +249,12 @@ rounded <- round((combined_vector/sum(combined_vector)), digits = 3)
 print(rounded)
 ```
 
-     [1] 0.013 0.026 0.038 0.051 0.064 0.077 0.090 0.103 0.115 0.128 0.141 0.154
-
-
 You can also perform math operations on two vectors...
 
 
 ```R
 print(rounded + combined_vector)
 ```
-
-     [1]  1.013  2.026  3.038  4.051  5.064  6.077  7.090  8.103  9.115 10.128
-    [11] 11.141 12.154
-
 
 but you'll get weird results if the vectors are different lengths:
 
@@ -364,21 +264,10 @@ print(combined_vector)
 print(numeric_vector)
 ```
 
-     [1]  1  2  3  4  5  6  7  8  9 10 11 12
-      one   two three  four  five 
-        1     2     3     4     5 
-
-
 
 ```R
 print(combined_vector + numeric_vector)
 ```
-
-    Warning message in combined_vector + numeric_vector:
-    “longer object length is not a multiple of shorter object length”
-
-     [1]  2  4  6  8 10  7  9 11 13 15 12 14
-
 
 It looks like R will give you an error message and then go back to the start of the shorter vector.
 
@@ -392,10 +281,6 @@ your_data <- c('6','5','3','2','11','0','9','9')
 class(your_data)
 ```
 
-
-'character'
-
-
 You vector is a character vector because the elements of the vector are in quotes. You can coerce them back into numeric values using `as.numeric()`:
 
 
@@ -405,35 +290,12 @@ print(your_new_data)
 class(your_new_data)
 ```
 
-    [1]  6  5  3  2 11  0  9  9
-
-
-
-'numeric'
-
-
 What happens if we try to `as.numeric` things that aren't numbers?
 
 
 ```R
 as.numeric(character_vector_2)
 ```
-
-    Warning message in eval(expr, envir, enclos):
-    “NAs introduced by coercion”
-
-
-<ol class=list-inline>
-	<li>&lt;NA&gt;</li>
-	<li>&lt;NA&gt;</li>
-	<li>&lt;NA&gt;</li>
-	<li>&lt;NA&gt;</li>
-	<li>&lt;NA&gt;</li>
-	<li>&lt;NA&gt;</li>
-	<li>&lt;NA&gt;</li>
-</ol>
-
-
 
 <div class="alert alert-block alert-warning">
 <b>Example:</b> <b>&ltNA&gt</b> indicates that these are missing values, so be careful when converting between classes.
@@ -447,25 +309,12 @@ Missing values can result from things like inappropriate coersion, Excel turning
 here_is_a_vector <- as.numeric(c(4/61, 35/52, '19-May', 3/40))
 ```
 
-    Warning message in eval(expr, envir, enclos):
-    “NAs introduced by coercion”
-
 We can use the `is.na()` function to see if our vector has any `<NA>` values in it:
 
 
 ```R
 is.na(here_is_a_vector)
 ```
-
-
-<ol class=list-inline>
-	<li>FALSE</li>
-	<li>FALSE</li>
-	<li>TRUE</li>
-	<li>FALSE</li>
-</ol>
-
-
 
 You can combine this with the `table()` function to see some tabulated results from `is.na()`:
 
@@ -474,22 +323,12 @@ You can combine this with the `table()` function to see some tabulated results f
 table(is.na(here_is_a_vector))
 ```
 
-
-    
-    FALSE  TRUE 
-        3     1 
-
-
 You might also encounter an `NaN`, which means 'not a number' and is the result of invalid math operations:
 
 
 ```R
 0/0
 ```
-
-
-NaN
-
 
 `NULL` is another one you might encounter, and it is the result of trying to query a parameter that is undefined for a specific object. For example, you can use the `names()` function to retrieve names assigned to an object. What happens when you try to use this function on an object you haven't named?
 
@@ -498,20 +337,12 @@ NaN
 names(here_is_a_vector)
 ```
 
-
-    NULL
-
-
 You might also see `Inf` or `-Inf` which are positive or negative infinity, which result from dividing by zero or operations that do not converge:
 
 
 ```R
 1/0
 ```
-
-
-Inf
-
 
 # Matrices
 - A matrix in R is a collection of elements organized into rows and columns.
@@ -539,12 +370,6 @@ my_matrix <- matrix(
 print(my_matrix)
 ```
 
-         [,1] [,2] [,3] [,4]
-    [1,]    1    4    7   10
-    [2,]    2    5    8   11
-    [3,]    3    6    9   12
-
-
 In the above code, we made `my_matrix`, we specified it should be populated by the vector `c(1:12)`, with 3 rows (`nrow = 3`) and 4 columns (`ncol = 4`) and be populated by column, not by row (`byrow = FALSE`)
 
 We can access the rows and columns by their numerical index using a `[row, column]` format.
@@ -555,10 +380,6 @@ For example, here's how we access row 3 and column 4:
 my_matrix[3,4]
 ```
 
-
-12
-
-
 Access entire row 3:
 
 
@@ -566,18 +387,12 @@ Access entire row 3:
 print(my_matrix[3,])
 ```
 
-    [1]  3  6  9 12
-
-
 Access entire column 4:
 
 
 ```R
 print(my_matrix[,4])
 ```
-
-    [1] 10 11 12
-
 
 You can also name the rows and columns and then access them by name. 
 For example, lets name the rows and columns of `my_matrix`
@@ -602,29 +417,15 @@ colnames(my_matrix) <- c('column_1', 'column_2', 'column_3', 'column_4')
 print(my_matrix)
 ```
 
-          column_1 column_2 column_3 column_4
-    row_1        1        4        7       10
-    row_2        2        5        8       11
-    row_3        3        6        9       12
-
-
 
 ```R
 print(my_matrix['row_2',])
 ```
 
-    column_1 column_2 column_3 column_4 
-           2        5        8       11 
-
-
 
 ```R
 print(my_matrix[,'column_2'])
 ```
-
-    row_1 row_2 row_3 
-        4     5     6 
-
 
 # Arrays
 - An array can be similar to a matrix but they can have more than 2 dimensions (e.g., more than rows and columns)
@@ -643,24 +444,6 @@ my_col_array <- array(
 print(my_col_array)
 ```
 
-    , , 1
-    
-          [,1]
-     [1,]    1
-     [2,]    2
-     [3,]    3
-     [4,]    4
-     [5,]    5
-     [6,]    6
-     [7,]    7
-     [8,]    8
-     [9,]    9
-    [10,]   10
-    [11,]   11
-    [12,]   12
-    
-
-
 
 ```R
 my_row_array <- array(
@@ -668,13 +451,6 @@ my_row_array <- array(
     dim = c(1,12,1))
 print(my_row_array)
 ```
-
-    , , 1
-    
-         [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
-    [1,]    1    2    3    4    5    6    7    8    9    10    11    12
-    
-
 
 
 ```R
@@ -684,15 +460,6 @@ my_array <- array(
 print(my_array)
 ```
 
-    , , 1
-    
-         [,1] [,2] [,3] [,4]
-    [1,]    1    4    7   10
-    [2,]    2    5    8   11
-    [3,]    3    6    9   12
-    
-
-
 
 ```R
 another_array <- array(
@@ -701,22 +468,6 @@ another_array <- array(
 print(another_array)
 ```
 
-    , , 1
-    
-         [,1] [,2] [,3] [,4]
-    [1,]    1    4    7   10
-    [2,]    2    5    8   11
-    [3,]    3    6    9   12
-    
-    , , 2
-    
-         [,1] [,2] [,3] [,4]
-    [1,]   13   16   19   22
-    [2,]   14   17   20   23
-    [3,]   15   18   21   24
-    
-
-
 Access elements of arrays like this `[row, column, other_dims]`
 
 
@@ -724,16 +475,10 @@ Access elements of arrays like this `[row, column, other_dims]`
 print(another_array[3,2,1])
 ```
 
-    [1] 6
-
-
 
 ```R
 print(another_array[3,2,2])
 ```
-
-    [1] 18
-
 
 You can also give your array some `dimnames()`:
 
@@ -746,22 +491,6 @@ dimnames(another_array) <- list(
 print(another_array)
 ```
 
-    , , matrix_1
-    
-          column_1 column_2 column_3 column_4
-    row_1        1        4        7       10
-    row_2        2        5        8       11
-    row_3        3        6        9       12
-    
-    , , matrix_2
-    
-          column_1 column_2 column_3 column_4
-    row_1       13       16       19       22
-    row_2       14       17       20       23
-    row_3       15       18       21       24
-    
-
-
 Then access your array elements by name:
 
 
@@ -769,17 +498,10 @@ Then access your array elements by name:
 print(another_array['row_3', 'column_2', 'matrix_1'])
 ```
 
-    [1] 6
-
-
 
 ```R
 print(another_array['row_3',,'matrix_1'])
 ```
-
-    column_1 column_2 column_3 column_4 
-           3        6        9       12 
-
 
 # Lists
 
@@ -792,38 +514,12 @@ my_list <- list(character_vector, my_array, my_matrix)
 print(my_list)
 ```
 
-    [[1]]
-    [1] "one"   "two"   "three" "four"  "five" 
-    
-    [[2]]
-    , , 1
-    
-         [,1] [,2] [,3] [,4]
-    [1,]    1    4    7   10
-    [2,]    2    5    8   11
-    [3,]    3    6    9   12
-    
-    
-    [[3]]
-          column_1 column_2 column_3 column_4
-    row_1        1        4        7       10
-    row_2        2        5        8       11
-    row_3        3        6        9       12
-    
-
-
 Use `[[]]` to access list elements:
 
 
 ```R
 print(my_list[[3]])
 ```
-
-          column_1 column_2 column_3 column_4
-    row_1        1        4        7       10
-    row_2        2        5        8       11
-    row_3        3        6        9       12
-
 
 Add more brackets to access sub-elements of a list:
 
@@ -832,17 +528,10 @@ Add more brackets to access sub-elements of a list:
 print(my_list[[3]][1])
 ```
 
-    [1] 1
-
-
 
 ```R
 print(my_list[[3]][1,])
 ```
-
-    column_1 column_2 column_3 column_4 
-           1        4        7       10 
-
 
 Name the list elements:
 
@@ -852,26 +541,6 @@ names(my_list) <- c('character_vector', 'my_array', 'my_matrix')
 print(my_list)
 ```
 
-    $character_vector
-    [1] "one"   "two"   "three" "four"  "five" 
-    
-    $my_array
-    , , 1
-    
-         [,1] [,2] [,3] [,4]
-    [1,]    1    4    7   10
-    [2,]    2    5    8   11
-    [3,]    3    6    9   12
-    
-    
-    $my_matrix
-          column_1 column_2 column_3 column_4
-    row_1        1        4        7       10
-    row_2        2        5        8       11
-    row_3        3        6        9       12
-    
-
-
 Use `unlist()` if you want to convert a list to a vector, let's make a new list (`list_1`)
 
 
@@ -880,21 +549,12 @@ list_1 <- list(1:5)
 print(list_1)
 ```
 
-    [[1]]
-    [1] 1 2 3 4 5
-    
-
-
 Use `str()` to look at the structure
 
 
 ```R
 str(list_1)
 ```
-
-    List of 1
-     $ : int [1:5] 1 2 3 4 5
-
 
 Then `unlist()` and look at the structure
 
@@ -903,10 +563,6 @@ Then `unlist()` and look at the structure
 print(unlist(list_1))
 str(unlist(list_1))
 ```
-
-    [1] 1 2 3 4 5
-     int [1:5] 1 2 3 4 5
-
 
 # Data Frames
 
@@ -929,12 +585,6 @@ example_df <- data.frame(
 print(example_df)
 ```
 
-      c..a....b....c.. c.1..3..5. c.TRUE..TRUE..FALSE.
-    1                a          1                 TRUE
-    2                b          3                 TRUE
-    3                c          5                FALSE
-
-
 Use `names()` or `colnames()` to name columns,  `rownames()` to name rows, or `dimnames()` to assign both column and row names to the data frame:
 
 
@@ -944,35 +594,17 @@ rownames(example_df) <- c('first', 'second', '')
 print(example_df)
 ```
 
-           letters numbers boolean
-    first        a       1    TRUE
-    second       b       3    TRUE
-                 c       5   FALSE
-
-
 
 ```R
 names(example_df) <- c('_letters_', '_numbers_', '_boolean_')
 print(example_df)
 ```
 
-           _letters_ _numbers_ _boolean_
-    first          a         1      TRUE
-    second         b         3      TRUE
-                   c         5     FALSE
-
-
 
 ```R
 dimnames(example_df) <- list(c('__first', '__second', '__third'), c('__letters', '__numbers', '__boolean'))
 print(example_df)
 ```
-
-             __letters __numbers __boolean
-    __first          a         1      TRUE
-    __second         b         3      TRUE
-    __third          c         5     FALSE
-
 
 We can use the `attributes()` and `str()` functions to get some information about our data frame:
 
@@ -982,37 +614,9 @@ attributes(example_df)
 ```
 
 
-<dl>
-	<dt>$names</dt>
-		<dd><ol class=list-inline>
-	<li>'__letters'</li>
-	<li>'__numbers'</li>
-	<li>'__boolean'</li>
-</ol>
-</dd>
-	<dt>$class</dt>
-		<dd>'data.frame'</dd>
-	<dt>$row.names</dt>
-		<dd><ol class=list-inline>
-	<li>'__first'</li>
-	<li>'__second'</li>
-	<li>'__third'</li>
-</ol>
-</dd>
-</dl>
-
-
-
-
 ```R
 str(example_df)
 ```
-
-    'data.frame':	3 obs. of  3 variables:
-     $ __letters: Factor w/ 3 levels "a","b","c": 1 2 3
-     $ __numbers: num  1 3 5
-     $ __boolean: logi  TRUE TRUE FALSE
-
 
 # Adding columns to a data frame
 
@@ -1027,12 +631,6 @@ patients_1 <- data.frame(
 print(patients_1)
 ```
 
-      c..Boo....Rex....Chuckles.. c.1..3..5. c..dog....dog....dog..
-    1                         Boo          1                    dog
-    2                         Rex          3                    dog
-    3                    Chuckles          5                    dog
-
-
 Use `names()` or `colnames()` to name columns,  `rownames()` to name rows, or `dimnames()` to assign both column and row names to the data frame.
 Here we will use `names()` to namethe columns:
 
@@ -1042,22 +640,12 @@ names(patients_1) <- c('name', 'number_of_visits', 'type')
 print(patients_1)
 ```
 
-          name number_of_visits type
-    1      Boo                1  dog
-    2      Rex                3  dog
-    3 Chuckles                5  dog
-
-
 We can use the column names to extract a single column using the notation `dataframe$column`, e.g.:
 
 
 ```R
 print(patients_1$name)
 ```
-
-    [1] Boo      Rex      Chuckles
-    Levels: Boo Chuckles Rex
-
 
 The `cbind()` function can be used to add more columns to a dataframe:
 
@@ -1068,12 +656,6 @@ patients_1 <- cbind(patients_1, column_4)
 print(patients_1)
 ```
 
-          name number_of_visits type column_4
-    1      Boo                1  dog        4
-    2      Rex                3  dog        2
-    3 Chuckles                5  dog        6
-
-
 We can also rename individual columns of the dataframe using index notation, lets rename the 4th column we just added:
 
 
@@ -1081,12 +663,6 @@ We can also rename individual columns of the dataframe using index notation, let
 colnames(patients_1)[4] <- 'age_in_years'
 print(patients_1)
 ```
-
-          name number_of_visits type age_in_years
-    1      Boo                1  dog            4
-    2      Rex                3  dog            2
-    3 Chuckles                5  dog            6
-
 
 We can also use the `dataframe$column` notation to add a new column and name it at the same time:
 
@@ -1096,12 +672,6 @@ patients_1$weight_in_pounds <- c(35, 75, 15)
 print(patients_1)
 ```
 
-          name number_of_visits type age_in_years weight_in_pounds
-    1      Boo                1  dog            4               35
-    2      Rex                3  dog            2               75
-    3 Chuckles                5  dog            6               15
-
-
 Let's use `str()` and `attributes()` functions to look at the structure and attributes of this data frame:
 
 
@@ -1109,33 +679,10 @@ Let's use `str()` and `attributes()` functions to look at the structure and attr
 str(patients_1)
 ```
 
-    'data.frame':	3 obs. of  5 variables:
-     $ name            : Factor w/ 3 levels "Boo","Chuckles",..: 1 3 2
-     $ number_of_visits: num  1 3 5
-     $ type            : Factor w/ 1 level "dog": 1 1 1
-     $ age_in_years    : num  4 2 6
-     $ weight_in_pounds: num  35 75 15
-
-
 
 ```R
 attributes(patients_1$name)
 ```
-
-
-<dl>
-	<dt>$levels</dt>
-		<dd><ol class=list-inline>
-	<li>'Boo'</li>
-	<li>'Chuckles'</li>
-	<li>'Rex'</li>
-</ol>
-</dd>
-	<dt>$class</dt>
-		<dd>'factor'</dd>
-</dl>
-
-
 
 **Notice that `patients_1$name` is a factor with three levels...**
 
@@ -1153,16 +700,6 @@ patients_1_rbind <- rbind(patients_1, c('Fluffy', 2, 'dog', 8, 105))
 print(patients_1_rbind)
 ```
 
-    Warning message in `[<-.factor`(`*tmp*`, ri, value = "Fluffy"):
-    “invalid factor level, NA generated”
-
-          name number_of_visits type age_in_years weight_in_pounds
-    1      Boo                1  dog            4               35
-    2      Rex                3  dog            2               75
-    3 Chuckles                5  dog            6               15
-    4     <NA>                2  dog            8              105
-
-
 - The `patients_1$name` column is classed as a `factor`, and the factors levels are `Boo`, `Chuckles`, and `Rex`. 
 - Recall that a factor is a type of variable that has a **set number of distinct categories into which all observations fall, which are the levels.**
 - R isn't sure what to do with the new level we are trying to add (`Fluffy`), so we have to turn those factors into strings.
@@ -1175,14 +712,6 @@ patients_1$name <- as.character(patients_1$name)
 str(patients_1)
 ```
 
-    'data.frame':	3 obs. of  5 variables:
-     $ name            : chr  "Boo" "Rex" "Chuckles"
-     $ number_of_visits: num  1 3 5
-     $ type            : Factor w/ 1 level "dog": 1 1 1
-     $ age_in_years    : num  4 2 6
-     $ weight_in_pounds: num  35 75 15
-
-
 Now we can use `rbind()` to add a new row:
 
 
@@ -1190,13 +719,6 @@ Now we can use `rbind()` to add a new row:
 patients_1 <- rbind(patients_1, c('Fluffy', 2, 'dog', 8, 105))
 print(patients_1)
 ```
-
-          name number_of_visits type age_in_years weight_in_pounds
-    1      Boo                1  dog            4               35
-    2      Rex                3  dog            2               75
-    3 Chuckles                5  dog            6               15
-    4   Fluffy                2  dog            8              105
-
 
 # Re-ordering factor levels
 - You might have ordinal data, like the following:
@@ -1213,12 +735,6 @@ Use the `table()` function to look at the vector:
 table(sizes)
 ```
 
-
-    sizes
-    extra large extra small       large      medium       small 
-              1           1           2           5           2 
-
-
 We might not necessarily want the factor levels in alphabetical order. You can re-order them like so:
 
 
@@ -1226,12 +742,6 @@ We might not necessarily want the factor levels in alphabetical order. You can r
 sizes_sorted <- factor(sizes, levels = c('extra small', 'small', 'medium', 'large', 'extra large'))
 table(sizes_sorted)
 ```
-
-
-    sizes_sorted
-    extra small       small      medium       large extra large 
-              1           2           5           2           1 
-
 
 You can also use the `relevel()` function to specify that there's a single factor you'd like to use as the reference factor, which will now be the first factor:
 
@@ -1241,12 +751,6 @@ sizes_releveled <- relevel(sizes, 'medium')
 table(sizes_releveled)
 ```
 
-
-    sizes_releveled
-         medium extra large extra small       large       small 
-              5           1           1           2           2 
-
-
 You can also coerce a factor to a character:
 
 
@@ -1255,15 +759,6 @@ character_vector <- as.character(sizes)
 class(character_vector)
 print(character_vector)
 ```
-
-
-'character'
-
-
-     [1] "extra small" "small"       "large"       "extra large" "large"      
-     [6] "small"       "medium"      "medium"      "medium"      "medium"     
-    [11] "medium"     
-
 
 Notice that print doesn't return the `Levels` and each element of the vector is now in quotes.
 It is also possible to convert a factor into a numeric vector if you want to:
@@ -1275,12 +770,6 @@ numeric_vector <- as.numeric(sizes)
 print(numeric_vector)
 ```
 
-     [1] extra small small       large       extra large large       small      
-     [7] medium      medium      medium      medium      medium     
-    Levels: extra large extra small large medium small
-     [1] 2 5 3 1 3 5 4 4 4 4 4
-
-
 This assigns numerical values based on alphabetical order of `sizes`
 
 
@@ -1289,12 +778,6 @@ print(sizes_sorted)
 ordered_numeric_vector <- as.numeric(sizes_sorted)
 print(ordered_numeric_vector)
 ```
-
-     [1] extra small small       large       extra large large       small      
-     [7] medium      medium      medium      medium      medium     
-    Levels: extra small small medium large extra large
-     [1] 1 2 4 5 4 2 3 3 3 3 3
-
 
 This assigns numerical values based on the levels you set when you created `sizes_sorted`
 
@@ -1307,13 +790,6 @@ For example:
 ```R
 print(patients_1)
 ```
-
-          name number_of_visits type age_in_years weight_in_pounds
-    1      Boo                1  dog            4               35
-    2      Rex                3  dog            2               75
-    3 Chuckles                5  dog            6               15
-    4   Fluffy                2  dog            8              105
-
 
 Let's make another data frame:
 
@@ -1328,12 +804,6 @@ colnames(patients_2) <- c('name', 'number_of_visits', 'type', 'age_in_years')
 print(patients_2)
 ```
 
-        name number_of_visits type age_in_years
-    1 Fluffy                1  cat            1
-    2 Smokey                1  dog            3
-    3  Kitty                2  cat            5
-
-
 We can use the `merge()` function to combine them:
 
 
@@ -1341,16 +811,6 @@ We can use the `merge()` function to combine them:
 patients_df <- merge(patients_1, patients_2, all = TRUE)
 print(patients_df)
 ```
-
-          name number_of_visits type age_in_years weight_in_pounds
-    1      Boo                1  dog            4               35
-    2 Chuckles                5  dog            6               15
-    3   Fluffy                1  cat            1             <NA>
-    4   Fluffy                2  dog            8              105
-    5    Kitty                2  cat            5             <NA>
-    6      Rex                3  dog            2               75
-    7   Smokey                1  dog            3             <NA>
-
 
 - Using `all = TRUE` will fill in blank values if needed (for example, the weight of any of the animals in `patients_2`).
 - You can also return only the first data frame specified using the `all.x = TRUE` argument
@@ -1361,13 +821,6 @@ patients_df <- merge(patients_1, patients_2, all.x = TRUE)
 print(patients_df)
 ```
 
-          name number_of_visits type age_in_years weight_in_pounds
-    1      Boo                1  dog            4               35
-    2 Chuckles                5  dog            6               15
-    3   Fluffy                2  dog            8              105
-    4      Rex                3  dog            2               75
-
-
 - Similarly, return only the second data frame specified using the `all.y = TRUE` argument:
 
 
@@ -1376,12 +829,6 @@ patients_df <- merge(patients_1, patients_2, all.y = TRUE)
 print(patients_df)
 ```
 
-        name number_of_visits type age_in_years weight_in_pounds
-    1 Fluffy                1  cat            1             <NA>
-    2  Kitty                2  cat            5             <NA>
-    3 Smokey                1  dog            3             <NA>
-
-
 You can also specify which columns to join on:
 
 
@@ -1389,16 +836,6 @@ You can also specify which columns to join on:
 patients_df <- merge(patients_1, patients_2, by = c('name', 'type', 'number_of_visits', 'age_in_years'), all = TRUE)
 print(patients_df)
 ```
-
-          name type number_of_visits age_in_years weight_in_pounds
-    1      Boo  dog                1            4               35
-    2 Chuckles  dog                5            6               15
-    3   Fluffy  dog                2            8              105
-    4   Fluffy  cat                1            1             <NA>
-    5    Kitty  cat                2            5             <NA>
-    6      Rex  dog                3            2               75
-    7   Smokey  dog                1            3             <NA>
-
 
 # Built-in functions
 - We have already used a few functions in this workshop (like print). 
@@ -1424,30 +861,14 @@ dim(DNase)
 ```
 
 
-<ol class=list-inline>
-	<li>176</li>
-	<li>3</li>
-</ol>
-
-
-
-
 ```R
 nrow(DNase)
 ```
 
 
-176
-
-
-
 ```R
 ncol(DNase)
 ```
-
-
-3
-
 
 We can use the `head()` function to look at the first few lines of the data frame:
 
@@ -1456,47 +877,12 @@ We can use the `head()` function to look at the first few lines of the data fram
 head(DNase)
 ```
 
-
-<table>
-<caption>A data.frame: 6 × 3</caption>
-<thead>
-	<tr><th scope=col>Run</th><th scope=col>conc</th><th scope=col>density</th></tr>
-	<tr><th scope=col>&lt;ord&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>1</td><td>0.04882812</td><td>0.017</td></tr>
-	<tr><td>1</td><td>0.04882812</td><td>0.018</td></tr>
-	<tr><td>1</td><td>0.19531250</td><td>0.121</td></tr>
-	<tr><td>1</td><td>0.19531250</td><td>0.124</td></tr>
-	<tr><td>1</td><td>0.39062500</td><td>0.206</td></tr>
-	<tr><td>1</td><td>0.39062500</td><td>0.215</td></tr>
-</tbody>
-</table>
-
-
-
 You can use the `n` argument to look at a different number of lines
 
 
 ```R
 head(DNase, n = 3)
 ```
-
-
-<table>
-<caption>A data.frame: 3 × 3</caption>
-<thead>
-	<tr><th scope=col>Run</th><th scope=col>conc</th><th scope=col>density</th></tr>
-	<tr><th scope=col>&lt;ord&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>1</td><td>0.04882812</td><td>0.017</td></tr>
-	<tr><td>1</td><td>0.04882812</td><td>0.018</td></tr>
-	<tr><td>1</td><td>0.19531250</td><td>0.121</td></tr>
-</tbody>
-</table>
-
-
 
 We can use the `tail()` function to look at the last few lines of the data frame:
 
@@ -1505,41 +891,12 @@ We can use the `tail()` function to look at the last few lines of the data frame
 tail(DNase, n = 5)
 ```
 
-
-<table>
-<caption>A data.frame: 5 × 3</caption>
-<thead>
-	<tr><th></th><th scope=col>Run</th><th scope=col>conc</th><th scope=col>density</th></tr>
-	<tr><th></th><th scope=col>&lt;ord&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><th scope=row>172</th><td>11</td><td> 3.125</td><td>0.980</td></tr>
-	<tr><th scope=row>173</th><td>11</td><td> 6.250</td><td>1.421</td></tr>
-	<tr><th scope=row>174</th><td>11</td><td> 6.250</td><td>1.385</td></tr>
-	<tr><th scope=row>175</th><td>11</td><td>12.500</td><td>1.715</td></tr>
-	<tr><th scope=row>176</th><td>11</td><td>12.500</td><td>1.721</td></tr>
-</tbody>
-</table>
-
-
-
 The summary function, which can be applied to either a vector or a data frame (in the latter case, R applies it separately to each column in the data frame) yields a variety of summary statistics about each variable. 
 
 
 ```R
 summary(DNase)
 ```
-
-
-          Run          conc             density      
-     10     :16   Min.   : 0.04883   Min.   :0.0110  
-     11     :16   1st Qu.: 0.34180   1st Qu.:0.1978  
-     9      :16   Median : 1.17188   Median :0.5265  
-     1      :16   Mean   : 3.10669   Mean   :0.7192  
-     4      :16   3rd Qu.: 3.90625   3rd Qu.:1.1705  
-     8      :16   Max.   :12.50000   Max.   :2.0030  
-     (Other):80                                      
-
 
 `summary()` is informative for numerical data, but not so helpful for factor data, as in the `Run` column. 
 Let's make a smaller subset of the `DNase` data to work with:
@@ -1551,39 +908,6 @@ DNase_subset
 ```
 
 
-<table>
-<caption>A data.frame: 20 × 3</caption>
-<thead>
-	<tr><th scope=col>Run</th><th scope=col>conc</th><th scope=col>density</th></tr>
-	<tr><th scope=col>&lt;ord&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>1</td><td> 0.04882812</td><td>0.017</td></tr>
-	<tr><td>1</td><td> 0.04882812</td><td>0.018</td></tr>
-	<tr><td>1</td><td> 0.19531250</td><td>0.121</td></tr>
-	<tr><td>1</td><td> 0.19531250</td><td>0.124</td></tr>
-	<tr><td>1</td><td> 0.39062500</td><td>0.206</td></tr>
-	<tr><td>1</td><td> 0.39062500</td><td>0.215</td></tr>
-	<tr><td>1</td><td> 0.78125000</td><td>0.377</td></tr>
-	<tr><td>1</td><td> 0.78125000</td><td>0.374</td></tr>
-	<tr><td>1</td><td> 1.56250000</td><td>0.614</td></tr>
-	<tr><td>1</td><td> 1.56250000</td><td>0.609</td></tr>
-	<tr><td>1</td><td> 3.12500000</td><td>1.019</td></tr>
-	<tr><td>1</td><td> 3.12500000</td><td>1.001</td></tr>
-	<tr><td>1</td><td> 6.25000000</td><td>1.334</td></tr>
-	<tr><td>1</td><td> 6.25000000</td><td>1.364</td></tr>
-	<tr><td>1</td><td>12.50000000</td><td>1.730</td></tr>
-	<tr><td>1</td><td>12.50000000</td><td>1.710</td></tr>
-	<tr><td>2</td><td> 0.04882812</td><td>0.045</td></tr>
-	<tr><td>2</td><td> 0.04882812</td><td>0.050</td></tr>
-	<tr><td>2</td><td> 0.19531250</td><td>0.137</td></tr>
-	<tr><td>2</td><td> 0.19531250</td><td>0.123</td></tr>
-</tbody>
-</table>
-
-
-
-
 
 We can also sort our data. Let's look at the `conc` column:
 
@@ -1592,44 +916,12 @@ We can also sort our data. Let's look at the `conc` column:
 print(DNase_subset$conc)
 ```
 
-     [1]  0.04882812  0.04882812  0.19531250  0.19531250  0.39062500  0.39062500
-     [7]  0.78125000  0.78125000  1.56250000  1.56250000  3.12500000  3.12500000
-    [13]  6.25000000  6.25000000 12.50000000 12.50000000  0.04882812  0.04882812
-    [19]  0.19531250  0.19531250
-
-
 Use the `order()` function to figure out the ascending rankings of the values
 
 
 ```R
 order(DNase_subset$conc)
 ```
-
-
-<ol class=list-inline>
-	<li>1</li>
-	<li>2</li>
-	<li>17</li>
-	<li>18</li>
-	<li>3</li>
-	<li>4</li>
-	<li>19</li>
-	<li>20</li>
-	<li>5</li>
-	<li>6</li>
-	<li>7</li>
-	<li>8</li>
-	<li>9</li>
-	<li>10</li>
-	<li>11</li>
-	<li>12</li>
-	<li>13</li>
-	<li>14</li>
-	<li>15</li>
-	<li>16</li>
-</ol>
-
-
 
 We can assign this ordering to a vector:
 
@@ -1645,39 +937,6 @@ And use it to reorder our data frame:
 DNase_subset[reorder_vector, ]
 ```
 
-
-<table>
-<caption>A data.frame: 20 × 3</caption>
-<thead>
-	<tr><th></th><th scope=col>Run</th><th scope=col>conc</th><th scope=col>density</th></tr>
-	<tr><th></th><th scope=col>&lt;ord&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><th scope=row>1</th><td>1</td><td> 0.04882812</td><td>0.017</td></tr>
-	<tr><th scope=row>2</th><td>1</td><td> 0.04882812</td><td>0.018</td></tr>
-	<tr><th scope=row>17</th><td>2</td><td> 0.04882812</td><td>0.045</td></tr>
-	<tr><th scope=row>18</th><td>2</td><td> 0.04882812</td><td>0.050</td></tr>
-	<tr><th scope=row>3</th><td>1</td><td> 0.19531250</td><td>0.121</td></tr>
-	<tr><th scope=row>4</th><td>1</td><td> 0.19531250</td><td>0.124</td></tr>
-	<tr><th scope=row>19</th><td>2</td><td> 0.19531250</td><td>0.137</td></tr>
-	<tr><th scope=row>20</th><td>2</td><td> 0.19531250</td><td>0.123</td></tr>
-	<tr><th scope=row>5</th><td>1</td><td> 0.39062500</td><td>0.206</td></tr>
-	<tr><th scope=row>6</th><td>1</td><td> 0.39062500</td><td>0.215</td></tr>
-	<tr><th scope=row>7</th><td>1</td><td> 0.78125000</td><td>0.377</td></tr>
-	<tr><th scope=row>8</th><td>1</td><td> 0.78125000</td><td>0.374</td></tr>
-	<tr><th scope=row>9</th><td>1</td><td> 1.56250000</td><td>0.614</td></tr>
-	<tr><th scope=row>10</th><td>1</td><td> 1.56250000</td><td>0.609</td></tr>
-	<tr><th scope=row>11</th><td>1</td><td> 3.12500000</td><td>1.019</td></tr>
-	<tr><th scope=row>12</th><td>1</td><td> 3.12500000</td><td>1.001</td></tr>
-	<tr><th scope=row>13</th><td>1</td><td> 6.25000000</td><td>1.334</td></tr>
-	<tr><th scope=row>14</th><td>1</td><td> 6.25000000</td><td>1.364</td></tr>
-	<tr><th scope=row>15</th><td>1</td><td>12.50000000</td><td>1.730</td></tr>
-	<tr><th scope=row>16</th><td>1</td><td>12.50000000</td><td>1.710</td></tr>
-</tbody>
-</table>
-
-
-
 Data frames can be classified into two broad categories: wide format and long format. All data frames shown so far have been presented in wide format. A wide format data frame has each row describe a sample and each column describe a feature. Here is a short example of a data frame in wide format, tabulating counts for three genes in three patients:
 
 
@@ -1687,22 +946,6 @@ colnames(wide_df) <- c("id", "gene.1", "gene.2", "gene.3")
 wide_df
 ```
 
-
-<table>
-<caption>A data.frame: 3 × 4</caption>
-<thead>
-	<tr><th scope=col>id</th><th scope=col>gene.1</th><th scope=col>gene.2</th><th scope=col>gene.3</th></tr>
-	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>A</td><td>1</td><td>5</td><td>0</td></tr>
-	<tr><td>B</td><td>1</td><td>6</td><td>1</td></tr>
-	<tr><td>C</td><td>2</td><td>7</td><td>0</td></tr>
-</tbody>
-</table>
-
-
-
 Long format stacks features on top of one another; each row is the combination of a sample and a feature.  One column exists to denote the feature in question, and another column exists to denote that feature' value:
 
 
@@ -1711,28 +954,6 @@ long_df <- data.frame(c("A", "A", "A", "B", "B", "B", "C", "C", "C"), c("gene.1"
 colnames(long_df) <- c("id", "gene", "count")
 long_df
 ```
-
-
-<table>
-<caption>A data.frame: 9 × 3</caption>
-<thead>
-	<tr><th scope=col>id</th><th scope=col>gene</th><th scope=col>count</th></tr>
-	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>A</td><td>gene.1</td><td>1</td></tr>
-	<tr><td>A</td><td>gene.2</td><td>5</td></tr>
-	<tr><td>A</td><td>gene.3</td><td>0</td></tr>
-	<tr><td>B</td><td>gene.1</td><td>1</td></tr>
-	<tr><td>B</td><td>gene.2</td><td>6</td></tr>
-	<tr><td>B</td><td>gene.3</td><td>1</td></tr>
-	<tr><td>C</td><td>gene.1</td><td>2</td></tr>
-	<tr><td>C</td><td>gene.2</td><td>7</td></tr>
-	<tr><td>C</td><td>gene.3</td><td>0</td></tr>
-</tbody>
-</table>
-
-
 
 These formats both contain the exact same data but represent it in different ways. Various functions exist to convert between wide and long format but these are beyond the scope of today's discussion. You can look up the `reshape2` or `tidyr` packages if you're interested in learning more about converting between long and wide formats -- alternatively, check out our tidyverse workshop.
 
@@ -1780,21 +1001,12 @@ To call that function and print the output:
 print(roll(number_of_dice = 10))
 ```
 
-     [1] 4 4 4 3 3 4 6 2 3 2
-
-
 Lets look at the `formals()`
 
 
 ```R
 formals(roll)
 ```
-
-
-    $number_of_dice
-    
-
-
 
 What about `body()`?
 
@@ -1803,23 +1015,12 @@ What about `body()`?
 body(roll)
 ```
 
-
-    {
-        rolled_dice <- sample(x = 6, size = number_of_dice, replace = TRUE)
-        return(rolled_dice)
-    }
-
-
 What about `environment()`?
 
 
 ```R
 environment(roll)
 ```
-
-
-    <environment: R_GlobalEnv>
-
 
 So, the function itself is called `roll`, it takes the argument or formals `number_of_dice` and the body of the function uses the built-in `sample` function in R to simulate dice rolls (use ?sample to learn more about the `sample()` function). 
 
@@ -1847,17 +1048,6 @@ So, the function itself is called `roll`, it takes the argument or formals `numb
     anonymous_dice = 5)
 ```
 
-
-<ol class=list-inline>
-	<li>2</li>
-	<li>6</li>
-	<li>1</li>
-	<li>3</li>
-	<li>5</li>
-</ol>
-
-
-
 ## More on user defined functions
 - We can also have functions that take more than one argument. 
 - Lets say we want to roll different numbers of dice (`number_of_dice`) and we want to change the size of the dice we roll (`number_of_sides`).
@@ -1881,9 +1071,6 @@ roll <- function(
 ```R
 print(roll(number_of_dice = 5, number_of_sides = 20))
 ```
-
-    [1] 15  6  1 12  9
-
 
 - Lets say we want to roll different numbers of dice (`number_of_dice`) and we want to change the size of the dice we roll (`number_of_sides`) as well as tweak the number of times we roll the dice (`number_of_rolls`).
 - We can use `replicate()` and `sample()`
@@ -1914,14 +1101,6 @@ rolled_dice <- roll(number_of_rolls = 10, number_of_sides = 20, number_of_dice =
 print(rolled_dice)
 ```
 
-         [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
-    [1,]   12   15   13    2    4    4    4   13    9     9
-    [2,]   15   16   16   10   17   18   13   18   19    11
-    [3,]   10    7    9   18   15    3    2    5    2    17
-    [4,]   10    9    2   14    7   13    5    4    5    16
-    [5,]   10    7   16   20    7   17   10   16   10    12
-
-
 You can use `colSums()` or `rowSums()` to calculate the sum of the columns and rows:
 
 
@@ -1929,16 +1108,10 @@ You can use `colSums()` or `rowSums()` to calculate the sum of the columns and r
 print(colSums(rolled_dice))
 ```
 
-     [1] 57 54 56 64 50 55 34 56 45 65
-
-
 
 ```R
 print(rowSums(rolled_dice))
 ```
-
-    [1]  85 153  88  85 125
-
 
 We can make `rolled_dice` into an **anonymous function**:
 
@@ -1961,19 +1134,6 @@ print(
         number_of_sides = 20))
 ```
 
-          [,1] [,2] [,3] [,4] [,5]
-     [1,]   13   11   18   15    9
-     [2,]    3   14    9   13    3
-     [3,]   14    2    7    5   11
-     [4,]   15   19   13    2   20
-     [5,]   16    2   14   15    3
-     [6,]   16   19    5   17   16
-     [7,]   17   14   13   10   17
-     [8,]   10    9   13   10   11
-     [9,]    5   16    3   19    6
-    [10,]    2   10   14   10    8
-
-
 Lets make another anonymous function that makes a boxplot of our dice rolls:
 
 
@@ -1993,10 +1153,6 @@ Lets make another anonymous function that makes a boxplot of our dice rolls:
     number_of_rolls = 10, 
     number_of_sides = 20)
 ```
-
-
-![png](output_238_0.png)
-
 
 We can give the boxplot a title:
 
@@ -2018,10 +1174,6 @@ We can give the boxplot a title:
     number_of_rolls = 10, 
     number_of_sides = 20)
 ```
-
-
-![png](output_240_0.png)
-
 
 We can use `paste()` to pass the function arguments as parts of the title for the figure, by adding `main = paste('the ' , number_of_dice, ' ', number_of_sides, '-sided dice were rolled ', number_of_rolls, ' times', sep='')`
 
@@ -2045,10 +1197,6 @@ We can use `paste()` to pass the function arguments as parts of the title for th
     number_of_rolls = 10, 
     number_of_sides = 20)
 ```
-
-
-![png](output_242_0.png)
-
 
 We can add some colors to the figure by adding `col = c(1:number_of_dice)`, this will generate enough colors so that each bar has a different color:
 
@@ -2074,15 +1222,9 @@ We can add some colors to the figure by adding `col = c(1:number_of_dice)`, this
     number_of_sides = 20)
 ```
 
-
-![png](output_244_0.png)
-
-
 # Importing and Exporting files
-- There are a few different ways to read and write files in R.
-- We will use `read.table()` and `write.table()`.
+- Use the `write.table` or `write.csv` functions to write outputs in R.
 - Lets use some of the pre-loaded data that comes with R. 
-- First, let's import the `iris` data as a data frame and use `head()` to look at the first few lines
 
 
 ```R
@@ -2090,140 +1232,75 @@ iris <- data.frame(iris)
 head(iris)
 ```
 
-
-<table>
-<caption>A data.frame: 6 × 5</caption>
-<thead>
-	<tr><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th><th scope=col>Petal.Width</th><th scope=col>Species</th></tr>
-	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr>
-</tbody>
-</table>
-
-
-
-You can write the output to a file using `write.table`:
+You can write the output to a file using `write.table` or `write.csv`:
 
 
 ```R
 write.table(iris, file = '~/iris_table.txt')
+write.csv(iris, file = '~/iris_csv.csv')
 ```
 
-Use `read.table()` to pull data into R:
+Let's try using `read.table` and `read.csv` to test out importing data:
 
 
 ```R
-iris_table_2 <- read.table('~/iris_table.txt')
+row.names(iris_csv2)
 ```
 
 
 ```R
-head(iris_table_2)
+iris_table2 <- read.table('~/iris_table.txt')
 ```
 
 
-<table>
-<caption>A data.frame: 6 × 5</caption>
-<thead>
-	<tr><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th><th scope=col>Petal.Width</th><th scope=col>Species</th></tr>
-	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr>
-</tbody>
-</table>
+```R
+iris_csv2 <- read.csv('~/iris_csv.csv')
+```
 
 
+```R
+head(iris_table2)
+```
+
+
+```R
+head(iris_csv2)
+```
 
 Notice that the `Species` column is a factor (`<fct>`). If we'd like text strings to be characters instead of factors when we import we can use `stringsAsFactors = FALSE`:
 
 
 ```R
-iris_table_3 <- read.table('~/iris_table.txt', stringsAsFactors = FALSE)
+iris_table <- read.table('~/iris_table.txt', stringsAsFactors = FALSE)
+iris_csv <- read.csv('~/iris_csv.csv', stringsAsFactors = FALSE)
 ```
 
 
 ```R
-head(iris_table_3)
+head(iris_table)
+head(iris_csv)
 ```
 
-
-<table>
-<caption>A data.frame: 6 × 5</caption>
-<thead>
-	<tr><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th><th scope=col>Petal.Width</th><th scope=col>Species</th></tr>
-	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr>
-</tbody>
-</table>
-
-
-
-Notice that the `Species` column is a character (`<chr>`)
 To convert back into a factor:
 
 
 ```R
-iris_table_3$Species <- as.factor(iris_table_3$Species)
+iris_table$Species <- as.factor(iris_table$Species)
+iris_csv$Species <- as.factor(iris_csv$Species)
 ```
 
 
 ```R
-head(iris_table_3)
+head(iris_table)
+head(iris_csv)
 ```
 
-
-<table>
-<caption>A data.frame: 6 × 5</caption>
-<thead>
-	<tr><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th><th scope=col>Petal.Width</th><th scope=col>Species</th></tr>
-	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr>
-</tbody>
-</table>
-
-
-
-Another convenient function is `list.files()`, which you can use with a wildcard (`*`) to return a list of all files in a directory (specified in `path =`) that start with `iris_`:
+Use `list.files()` get a list of all files in a directory:
 
 
 ```R
 list.files(path = '~', pattern = 'iris_*')
 ```
-
-
-<ol class=list-inline>
-	<li>'iris_csv.csv'</li>
-	<li>'iris_table.txt'</li>
-</ol>
-
-
 
 # R packages
 - Although R comes with many built in functions, you will probably want to install and use various R packages.
@@ -2235,11 +1312,6 @@ list.files(path = '~', pattern = 'iris_*')
 ```R
 install.packages('ggplot2')
 ```
-
-    
-    The downloaded binary packages are in
-    	/var/folders/72/vj4x94hd7375wt06bb5fr36hwbf4ln/T//RtmpgK2EAd/downloaded_packages
-
 
 Before you can actually use the package, you have to load it as follows:
 
@@ -2257,11 +1329,6 @@ There are two steps to downloading a package from Bioconductor -- first, install
 install.packages("BiocManager")
 ```
 
-    
-    The downloaded binary packages are in
-    	/var/folders/72/vj4x94hd7375wt06bb5fr36hwbf4ln/T//RtmpgK2EAd/downloaded_packages
-
-
 Then, load `BiocManager` and use `BiocManager::install()` to install a package.
 
 
@@ -2270,59 +1337,12 @@ library('BiocManager')
 BiocManager::install("org.Hs.eg.db")
 ```
 
-    Bioconductor version 3.8 (BiocManager 1.30.9), ?BiocManager::install for help
-    Bioconductor version 3.8 (BiocManager 1.30.9), R 3.5.2 (2018-12-20)
-    Installing package(s) 'org.Hs.eg.db'
-    installing the source package ‘org.Hs.eg.db’
-    
-    Old packages: 'arrangements', 'backports', 'callr', 'clipr', 'curl',
-      'data.table', 'devtools', 'digest', 'DT', 'ellipsis', 'fivethirtyeight',
-      'foreign', 'ggforce', 'ggplotify', 'ggpubr', 'ggraph', 'ggsignif', 'hms',
-      'htmlTable', 'htmltools', 'htmlwidgets', 'httpuv', 'httr', 'KernSmooth',
-      'knitr', 'lambda.r', 'later', 'markdown', 'matrixStats', 'mgcv', 'modelr',
-      'nlme', 'openxlsx', 'pkgbuild', 'pkgconfig', 'promises', 'purrr', 'R.oo',
-      'Rcpp', 'RcppArmadillo', 'rlang', 'rmarkdown', 'RSQLite', 'rvcheck',
-      'seqinr', 'shiny', 'survival', 'sys', 'testthat', 'tinytex', 'units',
-      'whisker', 'xfun', 'xml2', 'zip'
-
-
 Use the `sessionInfo()` function to see more information about your loaded R packages and namespace:
 
 
 ```R
 print(sessionInfo())
 ```
-
-    R version 3.5.2 (2018-12-20)
-    Platform: x86_64-apple-darwin15.6.0 (64-bit)
-    Running under: macOS Mojave 10.14.2
-    
-    Matrix products: default
-    BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-    LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
-    
-    locale:
-    [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
-    
-    attached base packages:
-    [1] stats     graphics  grDevices utils     datasets  methods   base     
-    
-    other attached packages:
-    [1] BiocManager_1.30.9 ggplot2_3.2.1     
-    
-    loaded via a namespace (and not attached):
-     [1] Rcpp_1.0.1       magrittr_1.5     tidyselect_0.2.5 munsell_0.5.0   
-     [5] uuid_0.1-2       colorspace_1.4-1 R6_2.4.0         rlang_0.4.0     
-     [9] dplyr_0.8.3      tools_3.5.2      grid_3.5.2       gtable_0.3.0    
-    [13] withr_2.1.2      htmltools_0.3.6  assertthat_0.2.1 lazyeval_0.2.2  
-    [17] digest_0.6.20    tibble_2.1.3     crayon_1.3.4     IRdisplay_0.7.0 
-    [21] purrr_0.3.2      repr_1.0.1       base64enc_0.1-3  vctrs_0.2.0     
-    [25] IRkernel_1.0.2   zeallot_0.1.0    glue_1.3.1       evaluate_0.14   
-    [29] pbdZMQ_0.3-3     compiler_3.5.2   pillar_1.4.2     scales_1.0.0    
-    [33] backports_1.1.4  jsonlite_1.6     pkgconfig_2.0.2 
-
-
-# If we have time, we can talk about some `apply()` functions:
 
 ## The `apply()` functions
 - R uses a family of `apply()` functions to repetitively manipulate objects while avoiding for loops. 
@@ -2358,22 +1378,10 @@ rolled_dice <- roll(number_of_rolls = 10, number_of_sides = 20, number_of_dice =
 print(rolled_dice)
 ```
 
-         [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
-    [1,]   14   16   19    6   18    1   20   14    1    16
-    [2,]    7    1    6   14    2    5    5    8   10    14
-    [3,]   15    8    9   14   11    5   10   14    9    12
-    [4,]   13   15   13   14   14   20    5   10   12    11
-    [5,]   17   11    1   11    6    6    6    9    9     7
-
-
 
 ```R
 class(rolled_dice)
 ```
-
-
-'matrix'
-
 
 I'm going to name the rows and columns using the `paste()` and `dimnames()`:
 
@@ -2386,14 +1394,6 @@ paste('roll', 1:5, sep = '_'),
 print(rolled_dice)
 ```
 
-           die_1 die_2 die_3 die_4 die_5 die_6 die_7 die_8 die_9 die_10
-    roll_1    14    16    19     6    18     1    20    14     1     16
-    roll_2     7     1     6    14     2     5     5     8    10     14
-    roll_3    15     8     9    14    11     5    10    14     9     12
-    roll_4    13    15    13    14    14    20     5    10    12     11
-    roll_5    17    11     1    11     6     6     6     9     9      7
-
-
 Let's try using `apply()` to increase every value by 1:
 
 
@@ -2402,18 +1402,6 @@ add_one <- apply(rolled_dice, c(1,2), function(element) element + 1)
 class(add_one)
 print(add_one)
 ```
-
-
-'matrix'
-
-
-           die_1 die_2 die_3 die_4 die_5 die_6 die_7 die_8 die_9 die_10
-    roll_1    15    17    20     7    19     2    21    15     2     17
-    roll_2     8     2     7    15     3     6     6     9    11     15
-    roll_3    16     9    10    15    12     6    11    15    10     13
-    roll_4    14    16    14    15    15    21     6    11    13     12
-    roll_5    18    12     2    12     7     7     7    10    10      8
-
 
 - The `c(1,2)` argument to `apply()` means that the function should apply to all rows and columns.
 - What about if we use apply to calculate sums for each row and column?
@@ -2426,22 +1414,10 @@ row_sums <- apply(rolled_dice, 1, function(element) sum(element))
 print(row_sums)       
 ```
 
-    roll_1 roll_2 roll_3 roll_4 roll_5 
-       125     72    107    127     83 
-
-
 
 ```R
 If we use `2` it will apply the function to each column:
 ```
-
-
-    Error in parse(text = x, srcfile = src): <text>:1:4: unexpected symbol
-    1: If we
-           ^
-    Traceback:
-
-
 
 
 ```R
