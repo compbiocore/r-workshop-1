@@ -43,7 +43,7 @@ Links to other workshops (Documentation and GitHub)
 - [Visualization in R with tidyverse](https://compbiocore.github.io/tidyverse-workshop/)
 - [Introduction to Bioconductor](https://compbiocore.github.io/bioconductor-workshop-1/)  
 - [Bioconductor for RNA-seq](https://compbiocore.github.io/bioconductor-workshop-2/html/index.html)  
-- [Introduction to Linux Tutorial](https://compbiocore.github.io/cbc-linux-tutorial/html/index.html)
+- [Introduction to Linux Tutorial](https://compbiocore.github.io/cbc-linux-tutorial/)
 
 ### Contact
 
